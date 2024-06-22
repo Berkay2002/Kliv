@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kliv Idrottsförening</title>
 
+    <!-- JS MAIN -->
+    <script src="js/main.js" defer></script>
+
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
 
@@ -12,10 +15,14 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- GSAP CSS/JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+
     <!-- Custom CSS/JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Internal CSS/JS -->
@@ -27,6 +34,7 @@
     <link rel="stylesheet" href="assets/css/judo.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    
 
 </head>
 <body class="font-raleway">
@@ -90,7 +98,7 @@
     <h3 class="text-3xl text-center mb-8">OM KLIV IDROTTSFÖRENING</h3>
     <p class="text-center text-lg mb-8">Vår förening i Norra Botkyrka</p>
     <p class="text-center text-base">Kliv Idrottsförening är en ideell förening baserad i Norra Botkyrka. Vi erbjuder både lov-aktiviteter och judo-träningar. Våra lov-aktiviteter är gratis tack vare bidrag från Botkyrka kommun. Judoträningarna kostar 750 kr per termin och är öppna för alla som vill träna och förbättra sina färdigheter.</p>
-  </div>
+</div>
 
 <!-- Lov-aktiviteter Section -->
 <div class="bg-gray-100 py-16 px-4" id="lovaktiviteter" data-aos="fade-up">
@@ -98,31 +106,31 @@
       <h3 class="text-3xl text-center mb-8">LOV-AKTIVITETER</h3>
       <p class="text-center text-lg mb-8">Gratis aktiviteter under loven</p>
       <div class="flex flex-wrap -mx-4">
-        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" data-aos="zoom-in">
+        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" >
           <img src="assets/images/lovaktiviteter1.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 1">
           <h4 class="text-xl mt-4">Aktivitet 1</h4>
           <p class="text-base">Beskrivning av aktivitet 1.</p>
         </div>
-        <div class="w-full md:w-1/2 px-4" data-aos="zoom-in">
+        <div class="w-full md:w-1/2 px-4" >
           <img src="assets/images/lovaktiviteter2.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 2">
           <h4 class="text-xl mt-4">Aktivitet 2</h4>
           <p class="text-base">Beskrivning av aktivitet 2.</p>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 <!-- Judo Section -->
 <div class="container mx-auto py-16 px-4" id="judo" data-aos="fade-up">
   <h3 class="text-3xl text-center mb-8">JUDO</h3>
   <p class="text-center text-lg mb-8">Träning och tävling</p>
   <div class="flex flex-wrap -mx-4">
-    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" data-aos="flip-left">
+    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" >
       <img src="assets/images/judo1.png" class="w-full hover:opacity-75" alt="Judo 1">
       <h4 class="text-xl mt-4">Judo Träning</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
     </div>
-    <div class="w-full md:w-1/2 px-4" data-aos="flip-left">
+    <div class="w-full md:w-1/2 px-4" >
       <img src="assets/images/judo2.png" class="w-full hover:opacity-75" alt="Judo 2">
       <h4 class="text-xl mt-4">Judo Tävling [Exempel]</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
@@ -146,7 +154,7 @@
         <a href="#contact" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Kontakta oss för mer information</a>
       </div>
     </div>
-  </div>
+</div>
 
 <!-- Contact Section -->
 <div class="bg-gray-100 py-16 px-4" id="contact" data-aos="fade-up">
@@ -174,7 +182,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
@@ -185,9 +193,8 @@
       <i class="fa fa-snapchat w3-hover-opacity"></i>
       <i class="fa fa-twitter w3-hover-opacity"></i>
     </div>
-  </footer>
+</footer>
 
-<script src="js/main.js"></script>
 
 <script>
 // Modal Image Gallery
@@ -264,11 +271,11 @@ function toggleSidebar() {
 }
 
 // Add AOS animations (Adjusted for Mobile)
-AOS.init({
-    duration: 800,
-    once: true,
-    disable: 'mobile',
-});
+    AOS.init({
+        duration: 800,
+        once: true,
+        disable: 'mobile',
+    });
 
 
 // Add GSAP animations (Adjusted for Mobile)
