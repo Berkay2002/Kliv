@@ -1,0 +1,10 @@
+#lovaktiviteter {
+    background-color: #ffffff;
+    padding: 128px 16px;
+  }
+  
+  #lovaktiviteter img {
+    width: 100%;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,9 @@
+#judo {
+  background-color: #ffffff;
+  padding: 128px 16px;
+}
+
+#judo img {
+  width: 100%;
+  cursor: pointer;
+}
