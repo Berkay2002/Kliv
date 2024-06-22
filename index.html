@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kliv Idrottsförening</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kliv Idrottsförening</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -16,115 +16,139 @@
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 </head>
-<body>
+<body class="font-raleway">
 
 <!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">KLIV</a>
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">OM OSS</a>
-      <a href="#lovaktiviteter" class="w3-bar-item w3-button">LOV-AKTIVITETER</a>
-      <a href="#judo" class="w3-bar-item w3-button">JUDO</a>
-      <a href="#contact" class="w3-bar-item w3-button">KONTAKT</a>
+<div class="fixed w-full z-10 bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-3">
+      <a href="#home" class="text-lg font-bold">KLIV</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="#about" class="hover:text-gray-700">OM OSS</a>
+        <a href="#medlemskap" class="hover:text-gray-700">BLI MEDLEM</a>
+        <a href="#lovaktiviteter" class="hover:text-gray-700">LOV-AKTIVITETER</a>
+        <a href="#judo" class="hover:text-gray-700">JUDO</a>
+        <a href="#contact" class="hover:text-gray-700">KONTAKT</a>
+      </div>
+      <button class="md:hidden text-gray-700" onclick="toggleSidebar()">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
 </div>
 
 <!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">OM OSS</a>
-  <a href="#lovaktiviteter" onclick="w3_close()" class="w3-bar-item w3-button">LOV-AKTIVITETER</a>
-  <a href="#judo" onclick="w3_close()" class="w3-bar-item w3-button">JUDO</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">KONTAKT</a>
-</nav>
+<div id="sidebar" class="fixed top-0 right-0 w-0 h-full bg-black bg-opacity-75 z-20 overflow-hidden transition-width duration-300">
+    <div class="bg-white p-8 h-full">
+      <button class="text-gray-700 text-xl mb-6" onclick="toggleSidebar()">Stäng ×</button>
+      <a href="#about" class="block mb-4 text-lg">OM OSS</a>
+      <a href="#medlemskap" class="block mb-4 text-lg">BLI MEDLEM</a>
+      <a href="#lovaktiviteter" class="block mb-4 text-lg">LOV-AKTIVITETER</a>
+      <a href="#judo" class="block mb-4 text-lg">JUDO</a>
+      <a href="#contact" class="block mb-4 text-lg">KONTAKT</a>
+    </div>
+</div>
 
 <!-- Header with photo loop -->
-<header class="photo-loop" id="home">
-    <div class="overlay-text">
-      <h1>Välkommen till Kliv Idrottsförening</h1>
-      <p>Delta i våra lov-aktiviteter och judo-träningar.</p>
-      <a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Läs mer</a>
-    </div>
-    <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-    </div>
-  </header>
-  
+<header class="photo-loop relative flex items-center justify-center text-center text-white" id="home">
+  <div class="overlay-text p-6 bg-black bg-opacity-50 rounded">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4">Välkommen till Kliv</h1>
+    <a href="#medlemskap" class="bg-white text-black py-2 px-4 rounded hover:bg-gray-200">Bli Medlem</a>
+  </div>
+  <div class="absolute bottom-6 left-6 text-gray-300 text-xl space-x-4">
+    <i class="fa fa-facebook-official hover:text-white"></i>
+    <i class="fa fa-instagram hover:text-white"></i>
+    <i class="fa fa-snapchat hover:text-white"></i>
+    <i class="fa fa-twitter hover:text-white"></i>
+  </div>
+</header>
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">OM KLIV IDROTTSFÖRENING</h3>
-  <p class="w3-center w3-large">Vår förening i Norra Botkyrka</p>
-  <p>Kliv Idrottsförening är en ideell förening baserad i Norra Botkyrka. Vi erbjuder både lov-aktiviteter och judo-träningar. Våra lov-aktiviteter är gratis tack vare bidrag från Botkyrka kommun. Judoträningarna kostar 750 kr per termin och är öppna för alla som vill träna och förbättra sina färdigheter.</p>
+<div class="container mx-auto py-16 px-4" id="about">
+  <h3 class="text-3xl text-center mb-8">OM KLIV IDROTTSFÖRENING</h3>
+  <p class="text-center text-lg mb-8">Vår förening i Norra Botkyrka</p>
+  <p class="text-center text-base">Kliv Idrottsförening är en ideell förening baserad i Norra Botkyrka. Vi erbjuder både lov-aktiviteter och judo-träningar. Våra lov-aktiviteter är gratis tack vare bidrag från Botkyrka kommun. Judoträningarna kostar 750 kr per termin och är öppna för alla som vill träna och förbättra sina färdigheter.</p>
 </div>
 
 <!-- Lov-aktiviteter Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="lovaktiviteter">
-  <h3 class="w3-center">LOV-AKTIVITETER</h3>
-  <p class="w3-center w3-large">Gratis aktiviteter under loven</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-half">
-      <img src="assets/images/lovaktiviteter1.png" style="width:100%" class="w3-hover-opacity" alt="Lov-aktivitet 1">
-      <h4>Aktivitet 1</h4>
-      <p>Beskrivning av aktivitet 1.</p>
-    </div>
-    <div class="w3-half">
-      <img src="assets/images/lovaktiviteter2.png" style="width:100%" class="w3-hover-opacity" alt="Lov-aktivitet 2">
-      <h4>Aktivitet 2</h4>
-      <p>Beskrivning av aktivitet 2.</p>
+<div class="bg-gray-100 py-16 px-4" id="lovaktiviteter">
+    <div class="container mx-auto">
+      <h3 class="text-3xl text-center mb-8">LOV-AKTIVITETER</h3>
+      <p class="text-center text-lg mb-8">Gratis aktiviteter under loven</p>
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+          <img src="assets/images/lovaktiviteter1.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 1">
+          <h4 class="text-xl mt-4">Aktivitet 1</h4>
+          <p class="text-base">Beskrivning av aktivitet 1.</p>
+        </div>
+        <div class="w-full md:w-1/2 px-4">
+          <img src="assets/images/lovaktiviteter2.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 2">
+          <h4 class="text-xl mt-4">Aktivitet 2</h4>
+          <p class="text-base">Beskrivning av aktivitet 2.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- Judo Section -->
-<div class="w3-container" style="padding:128px 16px" id="judo">
-  <h3 class="w3-center">JUDO</h3>
-  <p class="w3-center w3-large">Träning och tävling</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-half">
-      <img src="assets/images/judo1.png" style="width:100%" class="w3-hover-opacity" alt="Judo 1">
-      <h4>Judo Träning</h4>
-      <p>Våra judoträningar hålls två gånger i veckan och är öppna för alla nivåer.</p>
+<div class="container mx-auto py-16 px-4" id="judo">
+  <h3 class="text-3xl text-center mb-8">JUDO</h3>
+  <p class="text-center text-lg mb-8">Träning och tävling</p>
+  <div class="flex flex-wrap -mx-4">
+    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+      <img src="assets/images/judo1.png" class="w-full hover:opacity-75" alt="Judo 1">
+      <h4 class="text-xl mt-4">Judo Träning</h4>
+      <p class="text-base">Beskrivning av aktivitet</p>
     </div>
-    <div class="w3-half">
-      <img src="assets/images/judo2.png" style="width:100%" class="w3-hover-opacity" alt="Judo 2">
-      <h4>Judo Tävling</h4>
-      <p>Delta i tävlingar och förbättra dina färdigheter med våra erfarna tränare.</p>
+    <div class="w-full md:w-1/2 px-4">
+      <img src="assets/images/judo2.png" class="w-full hover:opacity-75" alt="Judo 2">
+      <h4 class="text-xl mt-4">Judo Tävling [Exempel]</h4>
+      <p class="text-base">Beskrivning av aktivitet</p>
     </div>
   </div>
-  <div class="w3-center w3-large" style="margin-top:64px">
+  <div class="text-center text-lg mt-8">
     <p>Kostnad: 750 kr per termin</p>
   </div>
 </div>
 
+<!-- Bli Medlem Section -->
+<div class="bg-gray-100 py-16 px-4" id="medlemskap">
+  <div class="container mx-auto">
+    <h3 class="text-3xl text-center mb-8">BLI MEDLEM</h3>
+    <p class="text-center text-lg mb-8">Bli en del av Kliv Idrottsförening</p>
+    <div class="text-center text-base mb-8">
+      <p>Att bli medlem i Kliv Idrottsförening är enkelt och öppet för alla. Vi välkomnar alla som vill delta i våra aktiviteter och förbättra sina färdigheter.</p>
+      <p>Medlemsavgiften är 750 kr per termin för judo-träningarna. </p>
+    </div>
+    <div class="text-center">
+      <a href="#contact" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Kontakta oss för mer information</a>
+    </div>
+  </div>
+</div>
+
 <!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">KONTAKT</h3>
-  <p class="w3-center w3-large">Skicka ett meddelande till oss:</p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Norra Botkyrka, Sverige</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefon: +46 70 123 4567</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@klividrottsforening.se</p>
-    <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Namn" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Ämne" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Meddelande" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SKICKA MEDDELANDE
-        </button>
-      </p>
-    </form>
+<div class="bg-gray-100 py-16 px-4" id="contact">
+  <div class="container mx-auto">
+    <h3 class="text-3xl text-center mb-8">KONTAKT</h3>
+    <p class="text-center text-lg mb-8">Skicka ett meddelande till oss:</p>
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+        <p class="mb-4"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Norra Botkyrka, Sverige</p>
+        <p class="mb-4"><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefon: +46 70 123 4567</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@klividrottsforening.se</p>
+      </div>
+      <div class="w-full lg:w-1/2 px-4">
+        <form action="/action_page.php" target="_blank">
+          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Namn" required name="Name"></p>
+          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Email" required name="Email"></p>
+          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Ämne" required name="Subject"></p>
+          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Meddelande" required name="Message"></p>
+          <p>
+            <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800" type="submit">
+              <i class="fa fa-paper-plane"></i> SKICKA MEDDELANDE
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -138,33 +162,12 @@
     <i class="fa fa-twitter w3-hover-opacity"></i>
   </div>
 </footer>
- 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<script src="https://www.w3schools.com/w3css/4/w3.css"></script>
+<script src="js/main.js"></script>
 
 <script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-
 // Modal Image Gallery
 function onClick(element) {
     document.getElementById("img01").src = element.src;
@@ -184,20 +187,55 @@ function w3_open() {
     }
 }
 
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
 // Photo Loop
 let currentIndex = 0;
-const images = ["assets/images/judo1.png", "assets/images/judo2.png", "assets/images/lovaktiviteter1.png", "assets/images/lovaktiviteter2.png"];
+const desktopImages = ["assets/images/judo1.png", "assets/images/judo2.png", "assets/images/lovaktiviteter1.png", "assets/images/lovaktiviteter2.png"];
+const mobileVideo = "assets/videos/video1.mp4";
 const header = document.querySelector('.photo-loop');
 
 function changeImage() {
-    header.style.backgroundImage = `url(${images[currentIndex]})`;
-    currentIndex = (currentIndex + 1) % images.length;
+    if (window.innerWidth >= 768) {
+        const images = desktopImages;
+        header.style.backgroundImage = `url(${images[currentIndex]})`;
+        header.innerHTML = '';  // Clear any video if present
+        currentIndex = (currentIndex + 1) % images.length;
+        setTimeout(changeImage, 5000); // Change image every 5 seconds
+    } else {
+        header.style.backgroundImage = '';
+        header.innerHTML = `<video autoplay muted loop class="w-full h-full object-cover"><source src="${mobileVideo}" type="video/mp4">Your browser does not support HTML5 video.</video>`;
+    }
+
+    // Add overlay text
+    const overlayText = `
+        <div class="overlay-text">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4">Välkommen till Kliv</h1>
+            <p class="text-lg sm:text-xl md:text-2xl">Delta i våra lov-aktiviteter och judo-träningar.</p>
+            <a href="#medlemskap" class="bg-white text-black py-2 px-4 rounded hover:bg-gray-200">Bli Medlem</a>
+        </div>
+    `;
+    header.innerHTML += overlayText;
 }
 
-setInterval(changeImage, 5000); // Change image every 5 seconds
-changeImage(); // Initialize with the first image
+changeImage(); // Initialize with the first image or video
+
+// Sidebar toggle
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.style.width === '70%') {
+        sidebar.style.width = '0';
+    } else {
+        sidebar.style.width = '70%';
+    }
+}
+
+window.addEventListener('resize', changeImage);
 
 </script>
-
+    
 </body>
 </html>
