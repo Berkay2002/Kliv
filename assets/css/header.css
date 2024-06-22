@@ -1,26 +1,8 @@
 .photo-loop {
     position: relative;
-    height: 100vh;
     width: 100%;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-  
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    line-height: 1.4; /* Added line-height to improve spacing */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Ensure the video fits within the container */
 }
 
 .overlay-text h1 {
@@ -35,12 +17,59 @@
 
 @media (min-width: 768px) {
     .photo-loop video {
-        display: none;
+        display: block; /* Ensure video is displayed on larger screens */
+        width: 100%; /* Cover the full width of the container */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Cover the area without losing aspect ratio */
     }
 }
 
-@media (max-width: 767px) {
-    .photo-loop img {
-        display: none;
+.styled-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 
+                 -2px -2px 4px rgba(255, 255, 255, 0.1);
+    padding: 0.5em;
+    display: inline-block;
+}
+
+.styled-button {
+    background-color: #ffffff;
+    color: black;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    display: block;
+    text-align: center;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.styled-button:hover {
+    transform: scale(1.05);
+    background-color: #e5e5e5;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    width: 100%;
+    padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+    .styled-text {
+        font-size: 3em;
     }
 }
+
+

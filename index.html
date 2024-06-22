@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kliv Idrottsförening</title>
+
+    <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- AOS CSS/JS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom CSS/JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Internal CSS/JS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -15,6 +27,7 @@
     <link rel="stylesheet" href="assets/css/judo.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+
 </head>
 <body class="font-raleway">
 
@@ -47,39 +60,50 @@
     </div>
 </div>
 
-<!-- Header with photo loop -->
+
+<!-- Header with video loop -->
 <header class="photo-loop relative flex items-center justify-center text-center text-white" id="home">
-  <div class="overlay-text p-6 bg-black bg-opacity-50 rounded">
-    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4">Välkommen till Kliv</h1>
-    <a href="#medlemskap" class="bg-white text-black py-2 px-4 rounded hover:bg-gray-200">Bli Medlem</a>
-  </div>
-  <div class="absolute bottom-6 left-6 text-gray-300 text-xl space-x-4">
-    <i class="fa fa-facebook-official hover:text-white"></i>
-    <i class="fa fa-instagram hover:text-white"></i>
-    <i class="fa fa-snapchat hover:text-white"></i>
-    <i class="fa fa-twitter hover:text-white"></i>
-  </div>
-</header>
+    <div class="video-container absolute inset-0 z-0">
+      <video id="headerVideo" autoplay muted loop class="w-full h-full object-cover">
+        <source id="videoSource" src="assets/videos/video1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+    </div>
+    <div class="overlay-text relative z-20">
+        <h1 class="styled-text headline animate__animated animate__fadeIn animate__delay-1s text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4">
+            KLIV IDROTTSFÖRENING
+        </h1>
+        <a href="#medlemskap" class="styled-button animate__animated animate__fadeIn animate__delay-1s">Bli Medlem</a>
+    </div>
+    <div class="absolute bottom-6 left-6 text-gray-300 text-xl space-x-4">
+      <i class="fa fa-facebook-official hover:text-white"></i>
+      <i class="fa fa-instagram hover:text-white"></i>
+      <i class="fa fa-snapchat hover:text-white"></i>
+      <i class="fa fa-twitter hover:text-white"></i>
+    </div>
+  </header>
+
 
 <!-- About Section -->
-<div class="container mx-auto py-16 px-4" id="about">
-  <h3 class="text-3xl text-center mb-8">OM KLIV IDROTTSFÖRENING</h3>
-  <p class="text-center text-lg mb-8">Vår förening i Norra Botkyrka</p>
-  <p class="text-center text-base">Kliv Idrottsförening är en ideell förening baserad i Norra Botkyrka. Vi erbjuder både lov-aktiviteter och judo-träningar. Våra lov-aktiviteter är gratis tack vare bidrag från Botkyrka kommun. Judoträningarna kostar 750 kr per termin och är öppna för alla som vill träna och förbättra sina färdigheter.</p>
-</div>
+<div class="container mx-auto py-16 px-4" id="about" data-aos="fade-up">
+    <h3 class="text-3xl text-center mb-8">OM KLIV IDROTTSFÖRENING</h3>
+    <p class="text-center text-lg mb-8">Vår förening i Norra Botkyrka</p>
+    <p class="text-center text-base">Kliv Idrottsförening är en ideell förening baserad i Norra Botkyrka. Vi erbjuder både lov-aktiviteter och judo-träningar. Våra lov-aktiviteter är gratis tack vare bidrag från Botkyrka kommun. Judoträningarna kostar 750 kr per termin och är öppna för alla som vill träna och förbättra sina färdigheter.</p>
+  </div>
 
 <!-- Lov-aktiviteter Section -->
-<div class="bg-gray-100 py-16 px-4" id="lovaktiviteter">
+<div class="bg-gray-100 py-16 px-4" id="lovaktiviteter" data-aos="fade-up">
     <div class="container mx-auto">
       <h3 class="text-3xl text-center mb-8">LOV-AKTIVITETER</h3>
       <p class="text-center text-lg mb-8">Gratis aktiviteter under loven</p>
       <div class="flex flex-wrap -mx-4">
-        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" data-aos="zoom-in">
           <img src="assets/images/lovaktiviteter1.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 1">
           <h4 class="text-xl mt-4">Aktivitet 1</h4>
           <p class="text-base">Beskrivning av aktivitet 1.</p>
         </div>
-        <div class="w-full md:w-1/2 px-4">
+        <div class="w-full md:w-1/2 px-4" data-aos="zoom-in">
           <img src="assets/images/lovaktiviteter2.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 2">
           <h4 class="text-xl mt-4">Aktivitet 2</h4>
           <p class="text-base">Beskrivning av aktivitet 2.</p>
@@ -89,16 +113,16 @@
   </div>
 
 <!-- Judo Section -->
-<div class="container mx-auto py-16 px-4" id="judo">
+<div class="container mx-auto py-16 px-4" id="judo" data-aos="fade-up">
   <h3 class="text-3xl text-center mb-8">JUDO</h3>
   <p class="text-center text-lg mb-8">Träning och tävling</p>
   <div class="flex flex-wrap -mx-4">
-    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" data-aos="flip-left">
       <img src="assets/images/judo1.png" class="w-full hover:opacity-75" alt="Judo 1">
       <h4 class="text-xl mt-4">Judo Träning</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
     </div>
-    <div class="w-full md:w-1/2 px-4">
+    <div class="w-full md:w-1/2 px-4" data-aos="flip-left">
       <img src="assets/images/judo2.png" class="w-full hover:opacity-75" alt="Judo 2">
       <h4 class="text-xl mt-4">Judo Tävling [Exempel]</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
@@ -110,61 +134,59 @@
 </div>
 
 <!-- Bli Medlem Section -->
-<div class="bg-gray-100 py-16 px-4" id="medlemskap">
-  <div class="container mx-auto">
-    <h3 class="text-3xl text-center mb-8">BLI MEDLEM</h3>
-    <p class="text-center text-lg mb-8">Bli en del av Kliv Idrottsförening</p>
-    <div class="text-center text-base mb-8">
-      <p>Att bli medlem i Kliv Idrottsförening är enkelt och öppet för alla. Vi välkomnar alla som vill delta i våra aktiviteter och förbättra sina färdigheter.</p>
-      <p>Medlemsavgiften är 750 kr per termin för judo-träningarna. </p>
-    </div>
-    <div class="text-center">
-      <a href="#contact" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Kontakta oss för mer information</a>
+<div class="bg-gray-100 py-16 px-4" id="medlemskap" data-aos="fade-up">
+    <div class="container mx-auto">
+      <h3 class="text-3xl text-center mb-8">BLI MEDLEM</h3>
+      <p class="text-center text-lg mb-8">Bli en del av Kliv Idrottsförening</p>
+      <div class="text-center text-base mb-8">
+        <p>Att bli medlem i Kliv Idrottsförening är enkelt och öppet för alla. Vi välkomnar alla som vill delta i våra aktiviteter och förbättra sina färdigheter.</p>
+        <p>Medlemsavgiften är 750 kr per termin för judo-träningarna. </p>
+      </div>
+      <div class="text-center">
+        <a href="#contact" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800">Kontakta oss för mer information</a>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- Contact Section -->
-<div class="bg-gray-100 py-16 px-4" id="contact">
-  <div class="container mx-auto">
-    <h3 class="text-3xl text-center mb-8">KONTAKT</h3>
-    <p class="text-center text-lg mb-8">Skicka ett meddelande till oss:</p>
-    <div class="flex flex-wrap -mx-4">
-      <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-        <p class="mb-4"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Norra Botkyrka, Sverige</p>
-        <p class="mb-4"><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefon: +46 70 123 4567</p>
-        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@klividrottsforening.se</p>
-      </div>
-      <div class="w-full lg:w-1/2 px-4">
-        <form action="/action_page.php" target="_blank">
-          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Namn" required name="Name"></p>
-          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Email" required name="Email"></p>
-          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Ämne" required name="Subject"></p>
-          <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Meddelande" required name="Message"></p>
-          <p>
-            <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800" type="submit">
-              <i class="fa fa-paper-plane"></i> SKICKA MEDDELANDE
-            </button>
-          </p>
-        </form>
+<div class="bg-gray-100 py-16 px-4" id="contact" data-aos="fade-up">
+    <div class="container mx-auto">
+      <h3 class="text-3xl text-center mb-8">KONTAKT</h3>
+      <p class="text-center text-lg mb-8">Skicka ett meddelande till oss:</p>
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+          <p class="mb-4"><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Norra Botkyrka, Sverige</p>
+          <p class="mb-4"><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Telefon: +46 70 123 4567</p>
+          <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@klividrottsforening.se</p>
+        </div>
+        <div class="w-full lg:w-1/2 px-4">
+          <form action="/action_page.php" target="_blank">
+            <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Namn" required name="Name"></p>
+            <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Email" required name="Email"></p>
+            <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Ämne" required name="Subject"></p>
+            <p><input class="w-full p-2 border rounded mb-4" type="text" placeholder="Meddelande" required name="Message"></p>
+            <p>
+              <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800" type="submit">
+                <i class="fa fa-paper-plane"></i> SKICKA MEDDELANDE
+              </button>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-  </div>
-</footer>
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+    </div>
+  </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
-<script src="https://www.w3schools.com/w3css/4/w3.css"></script>
 <script src="js/main.js"></script>
 
 <script>
@@ -192,36 +214,44 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
-// Photo Loop
-let currentIndex = 0;
-const desktopImages = ["assets/images/judo1.png", "assets/images/judo2.png", "assets/images/lovaktiviteter1.png", "assets/images/lovaktiviteter2.png"];
+// Video Loop
+const desktopVideo = "assets/videos/video3.mp4";
 const mobileVideo = "assets/videos/video1.mp4";
 const header = document.querySelector('.photo-loop');
 
-function changeImage() {
-    if (window.innerWidth >= 768) {
-        const images = desktopImages;
-        header.style.backgroundImage = `url(${images[currentIndex]})`;
-        header.innerHTML = '';  // Clear any video if present
-        currentIndex = (currentIndex + 1) % images.length;
-        setTimeout(changeImage, 5000); // Change image every 5 seconds
-    } else {
-        header.style.backgroundImage = '';
-        header.innerHTML = `<video autoplay muted loop class="w-full h-full object-cover"><source src="${mobileVideo}" type="video/mp4">Your browser does not support HTML5 video.</video>`;
-    }
+function setVideoSource() {
+    if (!header) return; // Ensure header exists
 
-    // Add overlay text
-    const overlayText = `
-        <div class="overlay-text">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4">Välkommen till Kliv</h1>
-            <p class="text-lg sm:text-xl md:text-2xl">Delta i våra lov-aktiviteter och judo-träningar.</p>
-            <a href="#medlemskap" class="bg-white text-black py-2 px-4 rounded hover:bg-gray-200">Bli Medlem</a>
-        </div>
-    `;
-    header.innerHTML += overlayText;
+    // Determine the correct video source based on window width
+    const videoSource = window.innerWidth < 768 ? mobileVideo : desktopVideo;
+
+    // Check if the video element already exists
+    let videoElement = header.querySelector('video');
+    if (!videoElement) {
+        // Create and append the video element if it doesn't exist
+        videoElement = document.createElement('video');
+        videoElement.setAttribute('autoplay', 'true');
+        videoElement.setAttribute('muted', 'true');
+        videoElement.setAttribute('loop', 'true');
+        videoElement.classList.add('w-full', 'h-full', 'object-cover');
+        const sourceElement = document.createElement('source');
+        sourceElement.setAttribute('src', videoSource);
+        sourceElement.setAttribute('type', 'video/mp4');
+        videoElement.appendChild(sourceElement);
+        header.appendChild(videoElement);
+    } else {
+        // Update the video source if it's different
+        const sourceElement = videoElement.querySelector('source');
+        if (sourceElement.getAttribute('src') !== videoSource) {
+            sourceElement.setAttribute('src', videoSource);
+            videoElement.load(); // Reload the video element to apply the new source
+        }
+    }
 }
 
-changeImage(); // Initialize with the first image or video
+setVideoSource(); // Initialize with the appropriate video
+window.addEventListener('resize', setVideoSource);
+
 
 // Sidebar toggle
 function toggleSidebar() {
@@ -233,9 +263,18 @@ function toggleSidebar() {
     }
 }
 
-window.addEventListener('resize', changeImage);
+// Add AOS animations (Adjusted for Mobile)
+AOS.init({
+    duration: 800,
+    once: true,
+    disable: 'mobile',
+});
 
-</script>
-    
+
+// Add GSAP animations (Adjusted for Mobile)
+gsap.registerPlugin(ScrollTrigger);
+
+    </script>
+
 </body>
 </html>
