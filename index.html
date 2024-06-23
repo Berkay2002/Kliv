@@ -247,6 +247,8 @@ function setVideoSource() {
         videoElement.setAttribute('autoplay', 'true');
         videoElement.setAttribute('muted', 'true');
         videoElement.setAttribute('loop', 'true');
+        videoElement.setAttribute('playsinline', 'true');
+        videoElement.setAttribute('id', 'headerVideo');
         videoElement.classList.add('w-full', 'h-full', 'object-cover');
         const sourceElement = document.createElement('source');
         sourceElement.setAttribute('src', videoSource);
@@ -288,6 +290,7 @@ ensureVideoPlays();
 
 // Listen for resize events to ensure the correct video source is used
 window.addEventListener('resize', setVideoSource);
+
 
 
 // Sidebar toggle
