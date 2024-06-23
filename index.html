@@ -47,17 +47,22 @@
       <a href="#home" class="navbar text-lg font-bold">
           <img src="assets/images/logo/white.svg" alt="KLIV" class="navbar-logo">
       </a>
+
       <div class="hidden md:flex space-x-6">
-          <a href="#about" class="hover:text-gray-700">OM OSS</a>
-          <a href="#lovaktiviteter" class="hover:text-gray-700">LOVAKTIVITETER</a>
-          <a href="#sportstruck" class="hover:text-gray-700">SPORTSTRUCK</a>
-          <a href="#judo" class="hover:text-gray-700">JUDO</a>
-          <a href="#medlemskap" class="hover:text-gray-700">BLI MEDLEM</a>
-          <a href="#contact" class="hover:text-gray-700">KONTAKT</a>
+        <a href="#about" class="nav-link">OM OSS</a>
+        <a href="#lovaktiviteter" class="nav-link">LOVAKTIVITETER</a>
+        <a href="#sportstruck" class="nav-link">SPORTSTRUCK</a>
+        <a href="#judo" class="nav-link">JUDO</a>
+        <a href="#medlemskap" class="nav-link">BLI MEDLEM</a>
+        <a href="#contact" class="nav-link">KONTAKT</a>
       </div>
+      
       <button class="md:hidden text-black-700 hamburger-icon" onclick="toggleSidebar()">
         <i class="fa fa-bars"></i>
     </button>
+
+    <div class="underline"></div>
+
   </div>
 </div>
 
@@ -298,7 +303,11 @@
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+  
+  <a href="#home" id="topButton" class="w3-button w3-light-grey">
+    <i class="fa fa-arrow-up w3-margin-right"></i>Till toppen
+  </a>
+
   <div class="w3-xlarge w3-section">
       <a href="https://www.facebook.com/spearif" target="_blank" rel="noopener noreferrer">
           <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -313,11 +322,61 @@
           <i class="fa fa-twitter w3-hover-opacity"></i>
       </a>
   </div>
+
 </footer>
 
 
 
 <script>
+
+// Intersection Observer for Navbar
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === entry.target.id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+// Intersection Observer for Footer Button
+document.addEventListener('DOMContentLoaded', function() {
+        const topButton = document.getElementById('topButton');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    topButton.classList.add('animate__animated', 'animate__bounce');
+                } else {
+                    topButton.classList.remove('animate__animated', 'animate__bounce');
+                }
+            });
+        }, {
+            root: null, // Use the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the button is visible
+        });
+
+        observer.observe(topButton);
+    });
 // Modal Image Gallery
 function onClick(element) {
     document.getElementById("img01").src = element.src;
@@ -441,6 +500,58 @@ function toggleSidebar() {
 
 // Add GSAP animations (Adjusted for Mobile)
 gsap.registerPlugin(ScrollTrigger);
+
+
+// Add underline effect to navbar links
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const underline = document.querySelector('.underline');
+    const sections = document.querySelectorAll('section');
+    let currentActive = document.querySelector('.nav-link');
+
+    function updateUnderline(target) {
+        const rect = target.getBoundingClientRect();
+        underline.style.width = `${rect.width}px`;
+        underline.style.left = `${rect.left}px`;
+    }
+
+    // Update underline on page load
+    updateUnderline(currentActive);
+
+    // Scroll event listener to update underline based on section in view
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+                if (targetLink) {
+                    currentActive = targetLink;
+                    updateUnderline(targetLink);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Click event listener to update underline on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').slice(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+            updateUnderline(e.target);
+        });
+    });
+});
+
+
+
 
     </script>
 
