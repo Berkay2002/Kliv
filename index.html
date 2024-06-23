@@ -80,6 +80,7 @@
 
 <!-- Header with video loop -->
 <header class="photo-loop relative flex items-center justify-center text-center text-white" id="home">
+    
     <div class="video-container absolute inset-0 z-0">
       <video id="headerVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
         <source id="videoSource" src="assets/videos/video1.mp4" type="video/mp4">
@@ -87,16 +88,27 @@
       </video>
       <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
     </div>
+
     <div class="overlay-text relative z-20 flex flex-col items-center">
       <img src="assets/images/logo/KLIV_idrottsforening_logga_r01_TRANSPARENT.svg" alt="Kliv Idrottsförening" class="logo-overlay">
         <a href="#medlemskap" class="styled-button animate__animated animate__fadeIn animate__delay-1s">Bli Medlem</a>
     </div>
+
     <div class="absolute bottom-6 left-6 text-gray-300 text-xl space-x-4">
-      <i class="fa fa-facebook-official hover:text-white"></i>
-      <i class="fa fa-instagram hover:text-white"></i>
-      <i class="fa fa-snapchat hover:text-white"></i>
-      <i class="fa fa-twitter hover:text-white"></i>
-    </div>
+      <a href="https://www.facebook.com/spearif" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-facebook-official hover:text-white"></i>
+      </a>
+      <a href="https://www.instagram.com/spear_if/" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-instagram hover:text-white"></i>
+      </a>
+      <a href="https://www.snapchat.com/add/spear_if" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-snapchat hover:text-white"></i>
+      </a>
+      <a href="https://twitter.com/spear_if" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-twitter hover:text-white"></i>
+      </a>
+  </div>
+  
   </header>
 
 
@@ -286,14 +298,23 @@
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
-    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-    </div>
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+  <div class="w3-xlarge w3-section">
+      <a href="https://www.facebook.com/spearif" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      </a>
+      <a href="https://www.instagram.com/spear_if/" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-instagram w3-hover-opacity"></i>
+      </a>
+      <a href="https://www.snapchat.com/add/spear_if" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-snapchat w3-hover-opacity"></i>
+      </a>
+      <a href="https://twitter.com/spear_if" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-twitter w3-hover-opacity"></i>
+      </a>
+  </div>
 </footer>
+
 
 
 <script>
