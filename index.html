@@ -41,28 +41,35 @@
 
 <!-- Navbar (sit on top) -->
 <div class="fixed w-full z-10 bg-white shadow-md">
-    <div class="container mx-auto px-4 flex justify-between items-center py-3">
-      <a href="#home" class="text-lg font-bold">KLIV</a>
+  <div class="container mx-auto px-4 flex justify-between items-center py-3">
+      <a href="#home" class="navbar text-lg font-bold">
+          <img src="assets/images/logo/white.svg" alt="KLIV" class="navbar-logo">
+      </a>
       <div class="hidden md:flex space-x-6">
-        <a href="#about" class="hover:text-gray-700">OM OSS</a>
-        <a href="#medlemskap" class="hover:text-gray-700">BLI MEDLEM</a>
-        <a href="#lovaktiviteter" class="hover:text-gray-700">LOV-AKTIVITETER</a>
-        <a href="#judo" class="hover:text-gray-700">JUDO</a>
-        <a href="#contact" class="hover:text-gray-700">KONTAKT</a>
+          <a href="#about" class="hover:text-gray-700">OM OSS</a>
+          <a href="#medlemskap" class="hover:text-gray-700">BLI MEDLEM</a>
+          <a href="#lovaktiviteter" class="hover:text-gray-700">LOVAKTIVITETER</a>
+          <a href="#sportstruck" class="hover:text-gray-700">SPORTSTRUCK</a>
+          <a href="#judo" class="hover:text-gray-700">JUDO</a>
+          <a href="#contact" class="hover:text-gray-700">KONTAKT</a>
       </div>
-      <button class="md:hidden text-gray-700" onclick="toggleSidebar()">
-        <i class="fa fa-bars"></i>
+      <button class="md:hidden text-black-700" onclick="toggleSidebar()">
+          <i class="fa fa-bars"></i>
       </button>
-    </div>
+  </div>
 </div>
+
 
 <!-- Sidebar on small screens when clicking the menu icon -->
 <div id="sidebar" class="fixed top-0 right-0 w-0 h-full bg-black bg-opacity-75 z-20 overflow-hidden transition-width duration-300">
-    <div class="bg-white p-8 h-full">
-      <button class="text-gray-700 text-xl mb-6" onclick="toggleSidebar()">Stäng ×</button>
+  <div class="navbar bg-white p-8 h-full">
+      <button class="text-black-700 sidebar-close-button" onclick="toggleSidebar()">
+        <i class="fa fa-bars"></i>
+      </button>
       <a href="#about" class="block mb-4 text-lg">OM OSS</a>
       <a href="#medlemskap" class="block mb-4 text-lg">BLI MEDLEM</a>
-      <a href="#lovaktiviteter" class="block mb-4 text-lg">LOV-AKTIVITETER</a>
+      <a href="#lovaktiviteter" class="block mb-4 text-lg">LOVAKTIVITETER</a>
+      <a href="#sportstruck" class="block mb-4 text-lg">SPORTSTRUCK</a>
       <a href="#judo" class="block mb-4 text-lg">JUDO</a>
       <a href="#contact" class="block mb-4 text-lg">KONTAKT</a>
     </div>
@@ -263,10 +270,10 @@ window.addEventListener('resize', setVideoSource);
 // Sidebar toggle
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    if (sidebar.style.width === '70%') {
+    if (sidebar.style.width === '50%') {
         sidebar.style.width = '0';
     } else {
-        sidebar.style.width = '70%';
+        sidebar.style.width = '50%';
     }
 }
 

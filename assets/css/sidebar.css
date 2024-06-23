@@ -1,0 +1,25 @@
+#sidebar {
+    transition: width 0.3s ease-in-out;
+}
+
+#sidebarToggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#sidebar.open {
+    width: 70%;
+}
+
+#sidebarToggle.open i:before {
+    content: '\f00d'; /* Change the icon to 'X' */
+}
+
+#sidebarToggle i {
+    transition: transform 0.3s ease-in-out;
+}
+
+#sidebarToggle.open i {
+    transform: rotate(45deg);
+}
+
