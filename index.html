@@ -112,12 +112,12 @@
       <p class="text-center text-lg mb-8">Gratis aktiviteter under loven</p>
       <div class="flex flex-wrap -mx-4">
         <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" >
-          <img src="assets/images/lovaktiviteter1.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 1">
+          <img src="assets/images/lovaktiviteter/lovaktiviteter1.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 1">
           <h4 class="text-xl mt-4">Aktivitet 1</h4>
           <p class="text-base">Beskrivning av aktivitet 1.</p>
         </div>
         <div class="w-full md:w-1/2 px-4" >
-          <img src="assets/images/lovaktiviteter2.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 2">
+          <img src="assets/images/lovaktiviteter/lovaktiviteter2.png" class="w-full hover:opacity-75" alt="Lov-aktivitet 2">
           <h4 class="text-xl mt-4">Aktivitet 2</h4>
           <p class="text-base">Beskrivning av aktivitet 2.</p>
         </div>
@@ -131,12 +131,12 @@
   <p class="text-center text-lg mb-8">Träning och tävling</p>
   <div class="flex flex-wrap -mx-4">
     <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" >
-      <img src="assets/images/judo1.png" class="w-full hover:opacity-75" alt="Judo 1">
+      <img src="assets/images/judo/judo1.png" class="w-full hover:opacity-75" alt="Judo 1">
       <h4 class="text-xl mt-4">Judo Träning</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
     </div>
     <div class="w-full md:w-1/2 px-4" >
-      <img src="assets/images/judo2.png" class="w-full hover:opacity-75" alt="Judo 2">
+      <img src="assets/images/judo/judo2.png" class="w-full hover:opacity-75" alt="Judo 2">
       <h4 class="text-xl mt-4">Judo Tävling [Exempel]</h4>
       <p class="text-base">Beskrivning av aktivitet</p>
     </div>
@@ -226,16 +226,20 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
+
+
 // Video Loop
-const desktopVideo = "assets/videos/video3.mp4";
+const desktopVideos = ["assets/videos/video2.mp4", "assets/videos/video4.mp4"];
 const mobileVideo = "assets/videos/video1.mp4";
 const header = document.querySelector('.photo-loop');
+
+let currentDesktopVideoIndex = 0;
 
 function setVideoSource() {
     if (!header) return; // Ensure header exists
 
     // Determine the correct video source based on window width
-    const videoSource = window.innerWidth < 768 ? mobileVideo : desktopVideo;
+    const videoSource = window.innerWidth < 768 ? mobileVideo : desktopVideos[currentDesktopVideoIndex];
 
     // Check if the video element already exists
     let videoElement = header.querySelector('video');
@@ -289,6 +293,16 @@ ensureVideoPlays();
 // Listen for resize events to ensure the correct video source is used
 window.addEventListener('resize', setVideoSource);
 
+// Function to change desktop video source periodically
+function changeDesktopVideo() {
+    if (window.innerWidth >= 768) { // Only change video source for desktop
+        currentDesktopVideoIndex = (currentDesktopVideoIndex + 1) % desktopVideos.length;
+        setVideoSource();
+    }
+}
+
+// Change the desktop video source every 9 seconds (adjust the interval as needed)
+setInterval(changeDesktopVideo, 9000);
 
 
 // Sidebar toggle
