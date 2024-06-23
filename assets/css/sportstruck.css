@@ -1,0 +1,57 @@
+/* Sportstruck Section Styles */
+#sportstruck h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#sportstruck img {
+    transition: opacity 0.3s ease;
+}
+
+#sportstruck img:hover {
+    opacity: 0.75;
+}
+
+#sportstruck .text-center p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+}
+
+#sportstruck .text-base {
+    color: #666;
+    line-height: 1.6;
+}
+
+#sportstruck .rounded {
+    border-radius: 8px;
+}
+
+#sportstruck .shadow-lg {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#sportstruck .aspect-w-16 {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+#sportstruck .aspect-w-16 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #sportstruck .flex-wrap {
+        flex-direction: column;
+    }
+    #sportstruck img {
+        margin-bottom: 20px;
+    }
+}

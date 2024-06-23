@@ -1,0 +1,57 @@
+/* Section Styles */
+#judo h3, #lovaktiviteter h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#judo img, #lovaktiviteter img {
+    transition: opacity 0.3s ease;
+}
+
+#judo img:hover, #lovaktiviteter img:hover {
+    opacity: 0.75;
+}
+
+#judo .text-center p, #lovaktiviteter .text-center p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+}
+
+#judo .text-base, #lovaktiviteter .text-base {
+    color: #666;
+    line-height: 1.6;
+}
+
+#judo .rounded, #lovaktiviteter .rounded {
+    border-radius: 8px;
+}
+
+#judo .shadow-lg, #lovaktiviteter .shadow-lg {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#judo .aspect-w-16, #lovaktiviteter .aspect-w-16 {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+#judo .aspect-w-16 img, #lovaktiviteter .aspect-w-16 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #judo .flex-wrap, #lovaktiviteter .flex-wrap {
+        flex-direction: column;
+    }
+    #judo img, #lovaktiviteter img {
+        margin-bottom: 20px;
+    }
+}
