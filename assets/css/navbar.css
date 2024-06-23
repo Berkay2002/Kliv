@@ -25,3 +25,51 @@
 .hamburger-icon {
   font-size: 2rem; /* Adjust the size as needed */
 }
+
+
+/* Underline effect for active navigation link */
+
+.navbar {
+    position: relative;
+    justify-content: space-around;
+}
+
+.navbar a {
+    position: relative;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s ease;
+}
+
+/* Navbar Styles */
+.navbar a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background: #000;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar a:not(.active)::after {
+    width: 0;
+}
