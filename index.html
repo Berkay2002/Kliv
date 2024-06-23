@@ -79,7 +79,7 @@
 <!-- Header with video loop -->
 <header class="photo-loop relative flex items-center justify-center text-center text-white" id="home">
     <div class="video-container absolute inset-0 z-0">
-      <video id="headerVideo" autoplay muted loop class="w-full h-full object-cover">
+      <video id="headerVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
         <source id="videoSource" src="assets/videos/video1.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
@@ -264,6 +264,29 @@ function setVideoSource() {
 }
 
 setVideoSource(); // Initialize with the appropriate video
+
+// Function to ensure video autoplay on mobile
+function ensureVideoPlays() {
+    const video = document.getElementById('headerVideo');
+    video.muted = true; // Ensure video is muted
+    video.playsInline = true; // Ensure playsinline attribute is set
+    video.autoplay = true; // Ensure autoplay attribute is set
+    video.loop = true; // Ensure loop attribute is set
+
+    // Attempt to play the video using JavaScript
+    video.play().catch(error => {
+        console.log('Autoplay was prevented. Triggering play with user interaction.');
+        // Optionally, you can add an event listener to trigger playback on user interaction
+        document.addEventListener('click', () => {
+            video.play();
+        });
+    });
+}
+
+// Call the function to ensure the video plays
+ensureVideoPlays();
+
+// Listen for resize events to ensure the correct video source is used
 window.addEventListener('resize', setVideoSource);
 
 
